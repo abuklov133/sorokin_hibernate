@@ -15,9 +15,14 @@ public class Student {
     @OneToOne(mappedBy = "student")
     private Profile profile;
 
-    public Student(String name, Integer age) {
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
+
+    public Student(String name, Integer age, Group group) {
         this.name = name;
         this.age = age;
+        this.group = group;
     }
 
     public Student() {
